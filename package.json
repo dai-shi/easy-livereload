@@ -1,0 +1,20 @@
+{
+  "name": "easy-livereload",
+  "description": "Express middleware to use livereload2 easily (both server and client)",
+  "author": "Daishi Kato <daishi@axlight.com>",
+  "dependencies": {
+    "connect-body-rewrite": "0.0.4",
+    "livereload-server": "0.2.3",
+    "napa": "1.1.0",
+    "node-watch": "0.3.4"
+  },
+  "scripts": {
+    "test": "mocha",
+    "install": "napa livereload/livereload-js#e6b5ac4319"
+  },
+  "devDependencies": {
+    "express": "4.10.6",
+    "mocha": "2.1.0",
+    "supertest": "0.15.0"
+  }
+}
