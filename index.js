@@ -112,7 +112,7 @@ module.exports = function(options) {
     return x;
   };
 
-  var code = '<script>document.write(\'<script src="http://\' + (location.host || \'' + options.host + '\').split(\':\')[0] + \':' + options.port + '/livereload.js?snipver=1"></script>\')</script>';
+  var code = '<script>document.write(\'<script src="//\' + (location.host || \'' + options.host + '\').split(\':\')[0] + \':' + options.port + '/livereload.js?snipver=1"></\' + \'script>\')</script>';
   code += '<script>document.addEventListener(\'LiveReloadDisconnect\', function() { setTimeout(function() { window.location.reload(); }, ' + options.reloadTimeout + '); })</script>';
 
   startLRServer(options);
