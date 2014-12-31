@@ -34,16 +34,6 @@ var LRWebSocketServer = require('livereload-server');
 var watch = require('node-watch');
 var bodyRewrite = require('connect-body-rewrite');
 
-var livereloadJsDir = 'livereload-js';
-fs.readdir(path.join(__dirname, 'node_modules'), function(err, files) {
-  if (err) throw err;
-  files.forEach(function(file) {
-    if (file.match(/^livereload-js/)) {
-      livereloadJsDir = file;
-    }
-  });
-});
-
 var lrserver = null;
 
 function startLRServer(options) {
@@ -62,7 +52,7 @@ function startLRServer(options) {
   });
 
   lrserver.on('livereload.js', function(req, res) {
-    fs.readFile(path.join(__dirname, 'node_modules', livereloadJsDir, 'dist', 'livereload.js'), 'utf8', function(err, data) {
+    fs.readFile(path.join(__dirname, 'node_modules', 'livereload-js', 'dist', 'livereload.js'), 'utf8', function(err, data) {
       if (err) throw err;
       res.writeHead(200, {
         'Content-Length': data.length,
