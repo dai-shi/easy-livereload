@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "test": "mocha",
-    "install": "napa git://github.com/livereload/livereload-js#e6b5ac4319"
+    "install": "napa https://github.com/livereload/livereload-js/archive/e6b5ac4319.tar.gz:livereload-js"
   },
   "devDependencies": {
     "express": "4.10.6",
