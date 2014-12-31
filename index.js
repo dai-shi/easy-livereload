@@ -83,11 +83,13 @@ function startLRServer(options) {
 
   options.watchDirs.forEach(function(dir) {
     watch(dir, function(file) {
-      sendAll({
-        command: 'reload',
-        path: options.renameFunc(file),
-        liveCSS: true
-      });
+      if (options.checkFunc(file)) {
+        sendAll({
+          command: 'reload',
+          path: options.renameFunc(file),
+          liveCSS: true
+        });
+      }
     });
   });
 }
@@ -98,6 +100,9 @@ module.exports = function(options) {
   options.port = options.port || 35729;
   options.reloadTimeout = options.reloadTimeout || 300;
   options.watchDirs = options.watchDirs || ['public'];
+  options.checkFunc = options.checkFunc || function(x) {
+    return /\.(css|js)$/.test(x);
+  };
   options.renameFunc = options.renameFunc || function(x) {
     return x;
   };
