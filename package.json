@@ -6,7 +6,7 @@
   "dependencies": {
     "connect-body-rewrite": "0.0.4",
     "livereload-server": "0.2.3",
-    "napa": "1.1.0",
+    "napa": "dai-shi/napa#f12552f2d8",
     "node-watch": "0.3.4"
   },
   "repository": {
@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "test": "mocha",
-    "install": "napa https://github.com/livereload/livereload-js/archive/e6b5ac4319.tar.gz:livereload-js"
+    "install": "napa livereload/livereload-js#e6b5ac4319:livereload-js"
   },
   "devDependencies": {
     "express": "4.10.6",
