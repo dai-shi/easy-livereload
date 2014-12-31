@@ -99,7 +99,8 @@ module.exports = function(options) {
   options = options || {};
   options.host = options.host || 'localhost';
   options.port = options.port || 35729;
-  options.reloadTimeout = options.reloadTimeout || 300;
+  options.restartTimeout = options.restartTimeout || 200;
+  options.reloadTimeout = options.reloadTimeout || 400;
   options.watchDirs = options.watchDirs || ['public'];
   options.checkFunc = options.checkFunc || function(x) {
     return /\.(css|js)$/.test(x);
@@ -110,6 +111,14 @@ module.exports = function(options) {
 
   var code = '<script>document.write(\'<script src="//\' + (location.host || \'' + options.host + '\').split(\':\')[0] + \':' + options.port + '/livereload.js?snipver=1"></\' + \'script>\')</script>';
   code += '<script>document.addEventListener(\'LiveReloadDisconnect\', function() { setTimeout(function() { window.location.reload(); }, ' + options.reloadTimeout + '); })</script>';
+
+  if (options.restartTimeout > 0) {
+    process.on('SIGTERM', function() {
+      setTimeout(function() {
+        process.exit(0);
+      }, options.restartTiemout);
+    });
+  }
 
   startLRServer(options);
 
