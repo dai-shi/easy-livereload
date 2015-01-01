@@ -99,8 +99,8 @@ module.exports = function(options) {
   options = options || {};
   options.host = options.host || 'localhost';
   options.port = options.port || 35729;
-  options.restartTimeout = options.restartTimeout || 400;
-  options.reloadTimeout = options.reloadTimeout || 600;
+  options.restartTimeout = options.restartTimeout || 1000;
+  options.reloadTimeout = options.reloadTimeout || 500;
   options.watchDirs = options.watchDirs || ['public'];
   options.checkFunc = options.checkFunc || function(x) {
     return /\.(css|js)$/.test(x);
