@@ -116,7 +116,7 @@ module.exports = function(options) {
     process.on('SIGTERM', function() {
       setTimeout(function() {
         process.exit(0);
-      }, options.restartTiemout);
+      }, options.restartTimeout);
     });
   }
 
