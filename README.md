@@ -43,7 +43,7 @@ Typical configuration:
           return /\.(css|js|jade)$/.test(file);
         },
         renameFunc: function(file) {
-          return file.replace(/\.jade/, '.html');
+          return file.replace(/\.jade$/, '.html');
         },
         port: process.env.LIVERELOAD_PORT || 35729
       }));
