@@ -6,7 +6,7 @@ very easily for express/node.js-based development.
 It is express middleware which provides both
 a livereload server and a javascript client.
 It is designed to be used with [node-dev](https://www.npmjs.com/package/node-dev)
-so that restarting server code is also possible.
+so that restarting a server process is also possible.
 
 The major features of this library include:
 
