@@ -1,12 +1,12 @@
 {
   "name": "easy-livereload",
   "description": "Express middleware to use livereload2 easily (both server and client)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Daishi Kato <daishi@axlight.com>",
   "dependencies": {
     "connect-body-rewrite": "0.0.4",
     "livereload-server": "0.2.3",
-    "napa": "dai-shi/napa#f12552f2d8",
+    "napa": "1.2.0",
     "node-watch": "0.3.4"
   },
   "repository": {
