@@ -102,7 +102,6 @@ module.exports = function(options) {
   options.restartTimeout = options.restartTimeout || 1000;
   options.reloadTimeout = options.reloadTimeout || 500;
   options.watchDirs = options.watchDirs || ['public'];
-  options.app = options.app || {}
   options.checkFunc = options.checkFunc || function(x) {
     return /\.(css|js)$/.test(x);
   };
@@ -113,7 +112,9 @@ module.exports = function(options) {
   var code = '<script>document.write(\'<script src="//\' + (location.host || \'' + options.host + '\').split(\':\')[0] + \':' + options.port + '/livereload.js?snipver=1"></\' + \'script>\')</script>';
   code += '<script>document.addEventListener(\'LiveReloadDisconnect\', function() { setTimeout(function() { window.location.reload(); }, ' + options.reloadTimeout + '); })</script>';
 
-  options.app.locals.LRScript = code
+  if (options.app) {
+    options.app.locals.LRScript = code  
+  }
 
   if (options.restartTimeout > 0) {
     process.on('SIGTERM', function() {
