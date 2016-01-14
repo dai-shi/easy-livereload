@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.0.4] - 2016-01-14
 ### Added
 - Option to reference a local variable for the LiveReload script
 
