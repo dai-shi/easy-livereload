@@ -28,6 +28,8 @@
 /* jshint quotmark: single, eqeqeq: true, camelcase: true */
 /* jshint node: true */
 
+/* eslint no-console: 0 */
+
 var fs = require('fs');
 var path = require('path');
 var LRWebSocketServer = require('livereload-server');
@@ -113,7 +115,7 @@ module.exports = function(options) {
   code += '<script>document.addEventListener(\'LiveReloadDisconnect\', function() { setTimeout(function() { window.location.reload(); }, ' + options.reloadTimeout + '); })</script>';
 
   if (options.app) {
-    options.app.locals.LRScript = code  
+    options.app.locals.LRScript = code;
   }
 
   if (options.restartTimeout > 0) {

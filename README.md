@@ -5,7 +5,8 @@ This is yet another library to use [livereload](http://livereload.com/)
 very easily for express/node.js-based development.
 It is express middleware which provides both
 a livereload server and a javascript client.
-It is designed to be used with [node-dev](https://www.npmjs.com/package/node-dev)
+It is designed to be used with
+[node-dev](https://www.npmjs.com/package/node-dev)
 so that restarting a server process is also possible.
 
 The major features of this library include:
@@ -67,17 +68,19 @@ if (app.get('env') === 'development') {
         return '.' + file_type_map[extention.slice(1)];
       });
     },
-    port: process.env.LIVERELOAD_PORT || 35729,
-    app: app
+    port: process.env.LIVERELOAD_PORT || 35729
   }));
 }
 ```
 
-By default this script tries to load the live reload script it's self but if that doesn't work for some reason then you can your `app` into the `easy-livereload` options. This will add a local variable to your `app` under `app.locals.LRScript`.
+By default this script tries to load the live reload script itself,
+but if that doesn't work for some reason then you can put your `app`
+into the `easy-livereload` options.
+This will add a local variable to your `app` under `app.locals.LRScript`.
 
 ```js
 var express = require('express');
-var app - express();
+var app = express();
 var livereload = require('easy-livereload');
 
 if (app.get('env') === 'development') {
@@ -99,11 +102,9 @@ html(lang="en")
 
 Example scripts entry in `package.json`:
 
-
 ```json
 "scripts": {
   "start": "env NODE_ENV=production node app.js",
   "start-dev": "env NODE_ENV=development node-dev app.js"
 }
 ```
-
