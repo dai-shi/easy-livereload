@@ -112,6 +112,10 @@ module.exports = function(options) {
   var code = '<script>document.write(\'<script src="//\' + (location.host || \'' + options.host + '\').split(\':\')[0] + \':' + options.port + '/livereload.js?snipver=1"></\' + \'script>\')</script>';
   code += '<script>document.addEventListener(\'LiveReloadDisconnect\', function() { setTimeout(function() { window.location.reload(); }, ' + options.reloadTimeout + '); })</script>';
 
+  if (options.app) {
+    options.app.locals.LRScript = code  
+  }
+
   if (options.restartTimeout > 0) {
     process.on('SIGTERM', function() {
       setTimeout(function() {

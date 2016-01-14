@@ -19,40 +19,91 @@ The major features of this library include:
 Install
 -------
 
-    $ npm install easy-livereload node-dev
+```bash
+npm install easy-livereload node-dev
+```
 
 Usage
 -----
 
 Minimal configuration:
 
-    app.use(require('easy-livereload')());
+```js
+app.use(require('easy-livereload')());
+```
 
 Typical configuration:
 
-    var path = require('path');
-    var express = require('express');
-    var app = express();
-    if (app.get('env') === 'development') {
-      app.use(require('easy-livereload')({
-        watchDirs: [
-          path.join(__dirname, 'public'),
-          path.join(__dirname, 'views')
-        ],
-        checkFunc: function(file) {
-          return /\.(css|js|jade)$/.test(file);
-        },
-        renameFunc: function(file) {
-          return file.replace(/\.jade$/, '.html');
-        },
-        port: process.env.LIVERELOAD_PORT || 35729
-      }));
-    }
+```js
+var path = require('path');
+var express = require('express');
+var app = express();
 
-Example scripts entry in package.json:
+if (app.get('env') === 'development') {
+  var livereload = require('easy-livereload');
+  var file_type_map = {
+    jade: 'html', // `index.jade` maps to `index.html`
+    styl: 'css', // `styles/site.styl` maps to `styles/site.css`
+    scss: 'css', // `styles/site.scss` maps to `styles/site.css`
+    sass: 'css', // `styles/site.scss` maps to `styles/site.css`
+    less: 'css' // `styles/site.scss` maps to `styles/site.css`
+    // add the file type being edited and what you want it to be mapped to.
+  };
+  
+  // store the generated regex of the object keys
+  var file_type_regex = new RegExp('\\.(' + Object.keys(file_type_map).join('|') + ')$');
+  
+  app.use(livereload({
+    watchDirs: [
+      path.join(__dirname, 'public'),
+      path.join(__dirname, 'app')
+    ],
+    checkFunc: function(file) {
+      return file_type_regex.test(file);
+    },
+    renameFunc: function(file) {
+      // remap extention of the file path to one of the extentions in `file_type_map`
+      return file.replace(file_type_regex, function(extention) {
+        return '.' + file_type_map[extention.slice(1)];
+      });
+    },
+    port: process.env.LIVERELOAD_PORT || 35729,
+    app: app
+  }));
+}
+```
 
-    "scripts": {
-      "start": "env NODE_ENV=production node app.js",
-      "start-dev": "env NODE_ENV=development node-dev app.js"
-    }
+By default this script tries to load the live reload script it's self but if that doesn't work for some reason then you can your `app` into the `easy-livereload` options. This will add a local variable to your `app` under `app.locals.LRScript`.
+
+```js
+var express = require('express');
+var app - express();
+var livereload = require('easy-livereload');
+
+if (app.get('env') === 'development') {
+  app.use(livereload({
+    app: app
+  }));
+}
+```
+
+```jade
+doctype html
+html(lang="en")
+  head
+    title Livereload
+    
+    != LRScript //- loads the livereload script
+```
+
+
+Example scripts entry in `package.json`:
+
+
+```json
+"scripts": {
+  "start": "env NODE_ENV=production node app.js",
+  "start-dev": "env NODE_ENV=development node-dev app.js"
+}
+```
 
