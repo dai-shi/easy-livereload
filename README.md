@@ -1,6 +1,8 @@
 easy-livereload
 ===============
 
+[![Build Status](https://travis-ci.org/dai-shi/easy-livereload.svg?branch=master)](https://travis-ci.org/dai-shi/easy-livereload)
+
 This is yet another library to use [livereload](http://livereload.com/)
 very easily for express/node.js-based development.
 It is express middleware which provides both
