@@ -28,5 +28,6 @@
     "express": "4.10.6",
     "mocha": "2.1.0",
     "supertest": "0.15.0"
-  }
+  },
+  "license": "BSD"
 }
