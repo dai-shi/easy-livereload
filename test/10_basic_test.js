@@ -1,8 +1,4 @@
-/* jshint undef: true, unused: true, latedef: true */
-/* jshint quotmark: single, eqeqeq: true, camelcase: true */
-/* jshint node: true */
-
-/* global describe, it */
+/* eslint-env mocha */
 
 var express = require('express');
 var request = require('supertest');

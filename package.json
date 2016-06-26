@@ -9,6 +9,12 @@
     "napa": "1.2.0",
     "node-watch": "0.3.4"
   },
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "express": "4.10.6",
+    "mocha": "2.1.0",
+    "supertest": "0.15.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dai-shi/easy-livereload.git"
@@ -21,13 +27,10 @@
     "watch"
   ],
   "scripts": {
-    "test": "mocha",
+    "test": "npm run eslint && npm run mocha",
+    "eslint": "eslint .",
+    "mocha": "mocha",
     "install": "napa livereload/livereload-js#e6b5ac4319:livereload-js"
   },
-  "devDependencies": {
-    "express": "4.10.6",
-    "mocha": "2.1.0",
-    "supertest": "0.15.0"
-  },
-  "license": "BSD"
+  "license": "BSD-2-Clause"
 }

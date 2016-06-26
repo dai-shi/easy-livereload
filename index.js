@@ -24,12 +24,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* jshint undef: true, unused: true, latedef: true */
-/* jshint quotmark: single, eqeqeq: true, camelcase: true */
-/* jshint node: true */
-
-/* eslint no-console: 0 */
-
 var fs = require('fs');
 var path = require('path');
 var LRWebSocketServer = require('livereload-server');
