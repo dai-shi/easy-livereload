@@ -48,7 +48,7 @@ function startLRServer(options) {
   });
 
   lrserver.on('livereload.js', function(req, res) {
-    fs.readFile(path.join(__dirname, 'node_modules', 'livereload-js', 'dist', 'livereload.js'), 'utf8', function(err, data) {
+    fs.readFile(path.join(require.resolve('livereload-js'), '../../', 'dist', 'livereload.js'), 'utf8', function(err, data) {
       if (err) throw err;
       res.writeHead(200, {
         'Content-Length': data.length,
