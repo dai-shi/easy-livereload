@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2016-09-11
+### Added
+- npm3 support
+
+## [1.1.0] - 2016-06-28
+### Added
+- Update livereload-js, obsoleting the use of napa
+
 ## [1.0.4] - 2016-01-14
 ### Added
 - Option to reference a local variable for the LiveReload script
