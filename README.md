@@ -107,7 +107,7 @@ Example scripts entry in `package.json`:
 
 ```json
 "scripts": {
-  "start": "env NODE_ENV=production node app.js",
-  "start-dev": "env NODE_ENV=development node-dev app.js"
+  "start": "NODE_ENV=production node app.js",
+  "start-dev": "NODE_ENV=development node-dev app.js"
 }
 ```
