@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2017-08-31
+### Changed
+- Workaround for process.EventEmitter (#4)
+
 ## [1.2.0] - 2016-09-11
 ### Added
 - npm3 support

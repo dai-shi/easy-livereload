@@ -24,6 +24,10 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// This is a workaround for https://github.com/dai-shi/easy-livereload/issues/4.
+// Instead, we should update dependent packages once they are ready.
+process.EventEmitter = process.EventEmitter || require('events');
+
 var fs = require('fs');
 var path = require('path');
 var LRWebSocketServer = require('livereload-server');
