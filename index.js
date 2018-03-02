@@ -128,7 +128,7 @@ module.exports = function(options) {
 
   return bodyRewrite({
     accept: function(res) {
-      return res.getHeader('content-type').match(/text\/html/);
+      return /text\/html/.test(res.getHeader('content-type'));
     },
     rewrite: function(body) {
       return body.replace(/<\/body>/, code + '</body>');

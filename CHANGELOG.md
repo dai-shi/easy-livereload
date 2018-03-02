@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.3.1] - 2018-03-02
+### Changed
+- Fix for no content-type header (#5)
+
 ## [1.3.0] - 2017-08-31
 ### Changed
 - Workaround for process.EventEmitter (#4)
