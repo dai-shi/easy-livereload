@@ -36,6 +36,14 @@ var bodyRewrite = require('connect-body-rewrite');
 
 var lrserver = null;
 
+var orgCreateConnection = LRWebSocketServer.prototype._createConnection;
+LRWebSocketServer.prototype._createConnection = function(socket) {
+  orgCreateConnection.call(this, socket);
+  socket.on('error', function(err) {
+    return console.error(err);
+  });
+};
+
 function startLRServer(options) {
   if (lrserver) return;
 
