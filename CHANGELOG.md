@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.3.2] - 2018-07-23
+### Changed
+- Workaround for websocket error handling (#6)
+
 ## [1.3.1] - 2018-03-02
 ### Changed
 - Fix for no content-type header (#5)
