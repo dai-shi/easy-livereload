@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2020-03-22
+### Changed
+- Make reloadTimeout optional (#7)
+
 ## [1.3.2] - 2018-07-23
 ### Changed
 - Workaround for websocket error handling (#6)
