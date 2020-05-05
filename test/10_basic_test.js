@@ -8,7 +8,8 @@ var app = express();
 
 var port = process.env.LIVERELOAD_TEST_PORT || 45729;
 app.use(livereload({
-  port: port
+  port: port,
+  watchDirs: ['./']
 }));
 
 app.get('/', function(req, res) {
