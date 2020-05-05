@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.4.1] - 2020-05-05
+### Changed
+- Update node-watch version (#9)
+
 ## [1.4.0] - 2020-03-22
 ### Changed
 - Make reloadTimeout optional (#7)

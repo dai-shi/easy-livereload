@@ -1,7 +1,7 @@
 {
   "name": "easy-livereload",
   "description": "Express middleware to use livereload2 easily (both server and client)",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "Daishi Kato <daishi@axlight.com>",
   "dependencies": {
     "connect-body-rewrite": "0.0.4",
