@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.4.2] - 2020-05-05
+### Changed
+- Fix a misusage in v1.4.1 (#11)
+
 ## [1.4.1] - 2020-05-05
 ### Changed
 - Update node-watch version (#9)
