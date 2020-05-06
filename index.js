@@ -90,7 +90,7 @@ function startLRServer(options) {
   };
 
   options.watchDirs.forEach(function(dir) {
-    watch(dir, function(file) {
+    watch(dir, function(event, file) {
       file = path.relative(dir, file);
       if (options.checkFunc(file)) {
         sendAll({
