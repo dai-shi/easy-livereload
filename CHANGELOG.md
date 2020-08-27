@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.4.3] - 2020-08-27
+### Changed
+- Ignore ECONNRESET (#14)
+
 ## [1.4.2] - 2020-05-05
 ### Changed
 - Fix a misusage in v1.4.1 (#11)
