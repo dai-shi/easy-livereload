@@ -40,8 +40,10 @@ var orgCreateConnection = LRWebSocketServer.prototype._createConnection;
 LRWebSocketServer.prototype._createConnection = function(socket) {
   orgCreateConnection.call(this, socket);
   socket.on('error', function(err) {
-    if(err.errno == 'ECONNRESET') // ignore ECONNRESET connection closed by client error
+    if (err.errno === 'ECONNRESET') {
+      // ignore ECONNRESET connection closed by client error
       return;
+    }
     console.error(err);
   });
 };
